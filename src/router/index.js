@@ -148,7 +148,7 @@ const routes = [
   },
   {
     path: "/",
-    component: () => import("@/views/layout/LayoutBlank.vue"),
+    component: () => import("@/views/layout/LayoutView.vue"),
     children: [
       {
         path: "/:pathMatch(.*)*",
