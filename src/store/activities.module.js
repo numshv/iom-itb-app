@@ -4,9 +4,6 @@ export const GET_ACTIVITIES = "getActivities";
 export const GET_DETAIL_ACTIVITY = "getDetailActivity";
 export const SET_ACTIVITIES = "setActivities";
 export const SET_DETAIL_ACTIVITY = "setDetailActivity";
-export const POST_ACTIVITY = "postActivity";
-export const PUT_ACTIVITY = "putActivity";
-export const DELETE_ACTIVITY = "deleteActivity";
 
 const state = {
     activities: [],
