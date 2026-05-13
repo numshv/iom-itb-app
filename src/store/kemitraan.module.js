@@ -30,7 +30,7 @@ const normalizePublicKemitraan = (items) => items.map(withoutPublicMou);
 const actions = {
   [GET_KEMITRAAN](context, params) {
     return new Promise((resolve, reject) => {
-      ApiService.get("/kemitraan", params)
+      ApiService.get("/kemitraan/public", params)
         .then((response) => {
           const { data } = response;
           context.commit(SET_KEMITRAAN, data);
@@ -44,7 +44,7 @@ const actions = {
   },
   [GET_DETAIL_KEMITRAAN](context, params) {
     return new Promise((resolve, reject) => {
-      ApiService.get(`/kemitraan/${params?.id}`)
+      ApiService.get(`/kemitraan/public/${params?.id}`)
         .then((response) => {
           const { data } = response;
           context.commit(SET_DETAIL_KEMITRAAN, data);
