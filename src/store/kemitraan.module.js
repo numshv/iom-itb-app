@@ -19,6 +19,14 @@ const getters = {
   },
 };
 
+const withoutPublicMou = (item) => {
+  if (!item || typeof item !== "object") return item;
+  const { mou, ...publicItem } = item;
+  return publicItem;
+};
+
+const normalizePublicKemitraan = (items) => items.map(withoutPublicMou);
+
 const actions = {
   [GET_KEMITRAAN](context, params) {
     return new Promise((resolve, reject) => {
@@ -53,17 +61,17 @@ const actions = {
 const mutations = {
   [SET_KEMITRAAN](state, data) {
     if (Array.isArray(data?.data)) {
-      state.kemitraan = data.data;
+      state.kemitraan = normalizePublicKemitraan(data.data);
     } else if (Array.isArray(data?.data?.data)) {
-      state.kemitraan = data.data.data;
+      state.kemitraan = normalizePublicKemitraan(data.data.data);
     } else if (Array.isArray(data)) {
-      state.kemitraan = data;
+      state.kemitraan = normalizePublicKemitraan(data);
     } else {
       state.kemitraan = [];
     }
   },
   [SET_DETAIL_KEMITRAAN](state, data) {
-    state.detailKemitraan = data?.data || data || null;
+    state.detailKemitraan = withoutPublicMou(data?.data || data || null);
   },
 };
 
