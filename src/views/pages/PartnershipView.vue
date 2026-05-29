@@ -80,18 +80,6 @@
           <p class="mt-3 max-w-3xl text-[14px] font-[500] leading-relaxed text-main/80 md:text-[16px]">
             {{ selectedPartner?.description || 'Informasi kerja sama IOM ITB bersama mitra terkait.' }}
           </p>
-
-          <div v-if="selectedPartner?.mou" class="mt-6">
-            <a
-              :href="selectedPartner.mou"
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center rounded-full bg-main px-6 py-3 text-[14px] font-[700] text-white shadow-lg hover:opacity-90"
-            >
-              Lihat Dokumen MoU
-              <span class="ml-2">→</span>
-            </a>
-          </div>
         </div>
 
         <div class="overflow-hidden rounded-[10px] bg-main shadow-xl">

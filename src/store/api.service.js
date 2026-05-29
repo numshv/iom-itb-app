@@ -18,9 +18,13 @@ const ApiService = {
   },
 
   setHeader() {
-    this.api1.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${JwtService.getToken()}`;
+    const token = JwtService.getToken();
+
+    if (token && token !== "undefined" && token !== "null") {
+      this.api1.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    } else {
+      delete this.api1.defaults.headers.common["Authorization"];
+    }
 
     // this.api2.defaults.headers.common[
     //   "Authorization"
